@@ -1,10 +1,8 @@
 import chromadb 
 from chromadb.db.base import UniqueConstraintError
-import sys
 import json
+from pdbwhereami import whereami
 
-sys.path.append("/home/bhagavan/training/aura-llm/00-utils/")
-from debug_helper import whereami
 
 def Create_collection():
     cname = "example1"
@@ -214,22 +212,23 @@ def list_all_collections():
 
 def main():
     whereami()
-    # Create_collection()
-    # Create_existing_collection()
-    # Get_non_existing_collection()
-    # Get_existing_collection()
-    # Get_or_create_existing_collection()
-    # Get_or_create_new_collection()
-    # Save_collection_to_disk()
-    # Load_collection_from_disk()
-    # Query_collection()
-    # Query_collection_Where()
+    Create_collection()
+    Create_existing_collection()
+    Get_non_existing_collection()
+    Get_existing_collection()
+    Get_or_create_existing_collection()
+    Get_or_create_new_collection()
+    Save_collection_to_disk()
+    Load_collection_from_disk()
+    Query_collection()
+    Query_collection_Where()
     Query_collection_by_id()
-    # Update_documents()
-    # Upsert_documents()
-    # Delete_documents_by_id()
-    # Get_documents_count()
-    # list_all_collections()
+    Update_documents()
+    Upsert_documents()
+    Delete_documents_by_id()
+    Get_documents_count()
+    list_all_collections()
+    pass
     
 if (__name__ == "__main__"):
     main()

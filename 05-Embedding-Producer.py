@@ -4,11 +4,8 @@ import chromadb
 import csv
 import sys
 import time
-
 from chromadb.utils import embedding_functions
-
-sys.path.append("/home/bhagavan/training/aura-llm/00-utils/")
-from debug_helper import whereami
+from pdbwhereami import whereami
 
 def producer_stream_csv_data(collection, csvdata, batchsize=0, queue=None):
     documents = []

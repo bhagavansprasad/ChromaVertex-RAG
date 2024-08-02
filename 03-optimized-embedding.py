@@ -5,9 +5,7 @@ import chromadb
 import csv
 import sys
 from chromadb.utils import embedding_functions
-
-sys.path.append("/home/bhagavan/training/aura-llm/00-utils/")
-from debug_helper import whereami
+from pdbwhereami import whereami
 
 def client_query_data(collection, query, result_count=2):
     whereami(f"Querying: Query :{query}")    
