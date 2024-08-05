@@ -12,12 +12,12 @@ def producer_stream_csv_data(collection, csvdata, batchsize=0, queue=None):
     metadata = []
     ids = []
     rfd = 0
-    # whereami(f"Embedding csv data csv file name:{csvdata}")
+    whereami(f"Embedding csv data csv file name:{csvdata}")
 
     try:
         rfd = open(csvdata)
     except IOError as err:
-        # whereami(f"Error in opening file err :{err}")
+        whereami(f"Error in opening file err :{err}")
         exit(1)
 
     csvfd = csv.reader(rfd)
@@ -32,9 +32,9 @@ def producer_stream_csv_data(collection, csvdata, batchsize=0, queue=None):
         if (len(results['ids']) != 0):
             continue
         
-        # whereami(f"ids      :{ids}")
-        # whereami(f"metadata :{metadata}")
-        # whereami(f"docs     :{documents}")
+        whereami(f"ids      :{ids}")
+        whereami(f"metadata :{metadata}")
+        whereami(f"docs     :{documents}")
         print()
         collection.add(documents=documents, metadatas=metadata, ids=ids)
         metadata = []
@@ -42,10 +42,10 @@ def producer_stream_csv_data(collection, csvdata, batchsize=0, queue=None):
         ids = []
         time.sleep(3)
         
-    # whereami(f"Finished Embedding csv data :{csvdata}")
+    whereami(f"Finished Embedding csv data :{csvdata}")
 
 def server_init_croma_db(vectdb_name, coll_name):
-    # whereami()
+    whereami()
 
     client = chromadb.PersistentClient(path=vectdb_name)
     
@@ -54,6 +54,7 @@ def server_init_croma_db(vectdb_name, coll_name):
     return collection
 
 def producer_create_embeddings(collection, csvdata):
+
     producer_stream_csv_data(collection, csvdata)
     return
 
@@ -61,7 +62,7 @@ def dump_collection_details(collection):
     print(collection.get())
     count = collection.count()   
     print()
-    # whereami(f"collection count :{count}")
+    whereami(f"collection count :{count}")
     print()
 
 def delete_collection_by_name(collection_name):
@@ -69,7 +70,7 @@ def delete_collection_by_name(collection_name):
     
     try:
         client.delete_collection(name=collection_name)
-        # whereami(f"Successfully Deleted collection :{collection_name}")
+        whereami(f"Successfully Deleted collection :{collection_name}")
     except ValueError as err:
         whereami(f"Collection doesn't exists :{err}")
         pass
@@ -81,7 +82,6 @@ def main():
     collection_name = "about-india"
     csvdata = "./data/indian_history.csv"
     
-    # whereami()
     # delete_collection_by_name(collection_name)
     
     collection = server_init_croma_db(vectdb_name, collection_name)

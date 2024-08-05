@@ -61,7 +61,6 @@ def server_init_croma_db(vectdb_name, coll_name):
     return collection
 
 def producer_create_embeddings(collection, csvdata):
-    whereami()
 
     producer_stream_csv_data(collection, csvdata)
     return
@@ -81,6 +80,7 @@ def delete_collection_by_name(collection_name):
         whereami(f"Successfully Deleted collection :{collection_name}")
     except ValueError as err:
         whereami(f"Collection doesn't exists :{err}")
+        pass
         
     return
 
@@ -96,14 +96,13 @@ def dump_results(jdata):
     # whereami(f"documents :{documents}")
 
     for i, id in enumerate(ids):
-        print(f"{id}: {metadata[i]['type']} -->{documents[i]}")
+        print(f"\t{id}: {metadata[i]['type']} -->{documents[i]}")
     
 def main():
     vectdb_name = "aura-vectorDB"
     collection_name = "about-india"
     csvdata = "../data/indian_history.csv"
     
-    whereami()
     # delete_collection_by_name(collection_name)
     
     collection = server_init_croma_db(vectdb_name, collection_name)
