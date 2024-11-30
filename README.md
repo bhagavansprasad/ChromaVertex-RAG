@@ -25,6 +25,72 @@ Collections are groups of vectors stored together in ChromaDB. They help organiz
 ### Indexes
 Indexes in ChromaDB are data structures that allow for fast retrieval of vectors based on similarity measures.
 
+### **Listing Files**
+1. **`01-list-files.py`**  
+   Script to list all files in a directory.
+2. **`02-list-git-files.py`**  
+   Script to list files tracked by Git in the current repository.
+3. **`03-git-pdfs.py`**  
+   Script to list PDF files tracked by Git.
+
+### **PDF Operations**
+4. **`04-pdf-ops`**  
+   Script for performing basic PDF operations like merging, splitting, or extracting content.
+5. **`05-chunk-overlap-basics.py`**  
+   Script to demonstrate chunk overlap concepts for splitting text or PDF content.
+6. **`06-pdf-embeddings.py`**  
+   Script to generate embeddings from PDF files.
+7. **`07-page-embeddings.py`**  
+   Script to create embeddings for individual pages of a PDF.
+8. **`08-chunk-embeddings.py`**  
+   Script to generate embeddings for specific chunks of text in a PDF.
+
+### **Embedding File Formats**
+9. **`09-pdf-embeddings-csv.py`**  
+   Script to save PDF embeddings into a CSV file.
+10. **`10-pdf-embeddings-json.py`**  
+   Script to save PDF embeddings into a JSON file.
+
+### **Loading Embeddings**
+11. **`11-Load-Emb-From-csv.py`**  
+   Script to load embeddings from a CSV file.
+12. **`12-Load-Emb-From-json.py`**  
+   Script to load embeddings from a JSON file.
+
+### **ChromaDB Operations**
+13. **`13-CRUD-CromaDB.py`**  
+   Script to perform Create, Read, Update, and Delete operations in ChromaDB.
+14. **`14-Embedding-Producer.py`**  
+   Script to generate embeddings and add them to ChromaDB.
+15. **`15-embedding-persistent.py`**  
+   Script to store embeddings persistently in ChromaDB.
+16. **`16-multiple-queries.py`**  
+   Script to execute multiple queries on ChromaDB.
+17. **`17-optimized-embedding.py`**  
+   Script to optimize embedding generation for better performance.
+
+### **Embedding to Vector Database**
+18. **`18-text-Emb-to-Vectordb.py`**  
+   Script to convert text embeddings and store them in a vector database.
+19. **`21-Pdf-Emb-to-Vectordb.py`**  
+   Script to convert PDF embeddings and store them in a vector database.
+20. **`22-CSV-Emb-to-Vectordb.py`**  
+   Script to convert embeddings from a CSV file and store them in a vector database.
+21. **`23-JSON-Emb-to-Vectordb.py`**  
+   Script to convert embeddings from a JSON file and store them in a vector database.
+
+### **Searching in Vector Database**
+22. **`19-Search-VDB-by-ID.py`**  
+   Script to search the vector database by ID.
+23. **`20-Search-VDB-by-Query.py`**  
+   Script to search the vector database using a query.
+24. **`24-Search-VDB.py`**  
+   General script to perform searches in a vector database.
+25. **`25-Search-VDB-by-ID.py`**  
+   Alternative script to search the vector database by ID.
+26. **`26-vdb-search-query.py`**  
+   Script to execute advanced search queries in the vector database.
+
 ## Content - Different operations on VectorDB (CromaDB)
 1. List all files in a folder
 2. List all files from a git repo cloned folder
