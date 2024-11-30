@@ -1,8 +1,30 @@
-# RAG Basics
-## Setup
+# RAG Basics  - A Beginner's Practical Guide to Vector Database: ChromaDB
+
+## Introduction to ChromaDB
+ChromaDB is a high-performance, scalable vector database designed to store, manage, and retrieve high-dimensional vectors efficiently. It is especially useful in applications involving machine learning, data science, and any field that requires fast and accurate similarity searches.
+
+## Key Features
+* High Performance: Optimized for speed and efficiency in handling large-scale vector data.
+* Scalability: Easily scales to handle growing datasets and increasing query loads.
+* Versatility: Supports various types of vector data and query methods.
+* Integration: Compatible with popular machine learning frameworks and data processing libraries.
+
+## Installing chromadb & dependencies
 ```sh
+sudo apt-get install libprotobuf-dev
 pip install .
 ```
+
+## Basic Concepts
+### Vectors
+Vectors are arrays of numbers representing data points in a high-dimensional space. ChromaDB specializes in managing these vectors and performing operations such as similarity searches.
+
+### Collections
+Collections are groups of vectors stored together in ChromaDB. They help organize and manage the data efficiently.
+
+### Indexes
+Indexes in ChromaDB are data structures that allow for fast retrieval of vectors based on similarity measures.
+
 ## Content - Different operations on VectorDB (CromaDB)
 1. List all files in a folder
 2. List all files from a git repo cloned folder
