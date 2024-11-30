@@ -25,108 +25,6 @@ Collections are groups of vectors stored together in ChromaDB. They help organiz
 ### Indexes
 Indexes in ChromaDB are data structures that allow for fast retrieval of vectors based on similarity measures.
 
-### **Listing Files**
-1. **`01-list-files.py`**  
-   Script to list all files in a directory.
-2. **`02-list-git-files.py`**  
-   Script to list files tracked by Git in the current repository.
-3. **`03-git-pdfs.py`**  
-   Script to list PDF files tracked by Git.
-
-### **PDF Operations**
-4. **`04-pdf-ops`**  
-   Script for performing basic PDF operations like merging, splitting, or extracting content.
-5. **`05-chunk-overlap-basics.py`**  
-   Script to demonstrate chunk overlap concepts for splitting text or PDF content.
-6. **`06-pdf-embeddings.py`**  
-   Script to generate embeddings from PDF files.
-7. **`07-page-embeddings.py`**  
-   Script to create embeddings for individual pages of a PDF.
-8. **`08-chunk-embeddings.py`**  
-   Script to generate embeddings for specific chunks of text in a PDF.
-
-### **Embedding File Formats**
-9. **`09-pdf-embeddings-csv.py`**  
-   Script to save PDF embeddings into a CSV file.
-10. **`10-pdf-embeddings-json.py`**  
-   Script to save PDF embeddings into a JSON file.
-
-### **Loading Embeddings**
-11. **`11-Load-Emb-From-csv.py`**  
-   Script to load embeddings from a CSV file.
-12. **`12-Load-Emb-From-json.py`**  
-   Script to load embeddings from a JSON file.
-
-### **ChromaDB Operations**
-13. **`13-CRUD-CromaDB.py`**  
-   Script to perform Create, Read, Update, and Delete operations in ChromaDB.
-14. **`14-Embedding-Producer.py`**  
-   Script to generate embeddings and add them to ChromaDB.
-15. **`15-embedding-persistent.py`**  
-   Script to store embeddings persistently in ChromaDB.
-16. **`16-multiple-queries.py`**  
-   Script to execute multiple queries on ChromaDB.
-17. **`17-optimized-embedding.py`**  
-   Script to optimize embedding generation for better performance.
-
-### **Embedding to Vector Database**
-18. **`18-text-Emb-to-Vectordb.py`**  
-   Script to convert text embeddings and store them in a vector database.
-19. **`21-Pdf-Emb-to-Vectordb.py`**  
-   Script to convert PDF embeddings and store them in a vector database.
-20. **`22-CSV-Emb-to-Vectordb.py`**  
-   Script to convert embeddings from a CSV file and store them in a vector database.
-21. **`23-JSON-Emb-to-Vectordb.py`**  
-   Script to convert embeddings from a JSON file and store them in a vector database.
-
-### **Searching in Vector Database**
-22. **`19-Search-VDB-by-ID.py`**  
-   Script to search the vector database by ID.
-23. **`20-Search-VDB-by-Query.py`**  
-   Script to search the vector database using a query.
-24. **`24-Search-VDB.py`**  
-   General script to perform searches in a vector database.
-25. **`25-Search-VDB-by-ID.py`**  
-   Alternative script to search the vector database by ID.
-26. **`26-vdb-search-query.py`**  
-   Script to execute advanced search queries in the vector database.
-
-## Content - Different operations on VectorDB (CromaDB)
-1. List all files in a folder
-2. List all files from a git repo cloned folder
-3. List only pdf files from cloned folder
-4. Create CRUD operations on PDF files using Fitz
-5. Create Chunks from PDF content
-6. Create embenddings for PDF content
-7. Create embenddings for each Page and for whole file
-8. Create embenddings for Chunked-text, Page and for whole file
-9. Create embenddings and store Pandas Dataframe and to csv file
-10. Create embenddings and store Pandas Dataframe and to json file
-11. Load embenddings from csv to Pandas Dataframe
-12. Load embenddings from json to Pandas Dataframe
-13. ChromaDB CRUD operations
-13. Basic String embeddings to VectorDB
-14. Search VectorDB by ID
-15. Search VectorDB by Query
-16. Create PDF file's embeddings and store in VectorDB *
-17. Load embeddings from csv and store in VectorDB * - NOT WORKING
-18. Load embeddings from json and store in VectorDB * - NOT WORKING
-19. Search in VectorDB (ChromaDB)
-20. Search VectorDB
-21. Create Query and search in VectorDB (ChromaDB)
-19. Create Query and Search extract 'n' results *
-20. Create Context with search results and pass to LLM *
-22. Create Query and Search extract 'n' results from VectorDB and pass to LLM *
-23. Create embenddings from multiple PDF files *
-24. Create embenddings multiple PDF files and store in different VectorDBs  *
-25. Create query and get the results from different VectorDBs *
-26. Dump VectorDB details *
-27. Do 'Create' from CRUD operations on VectorDB *
-28. Do 'Read' from CRUD operations on VectorDB *
-29. Do 'Update' from CRUD operations on VectorDB *
-30. Do 'Delete' from CRUD operations on VectorDB *
-
-
 ### Points to Note while creating embeddings
 
 - A query is valid only when the dimensions of the search query embedding match those of the stored chunk embedding.
@@ -138,3 +36,95 @@ Indexes in ChromaDB are data structures that allow for fast retrieval of vectors
   - Page number
   - Chunk number
   - Chunk size
+  
+## Content - Different operations on VectorDB (CromaDB)
+### **Listing Files**
+1. **Listing all files in a directory**  
+   Script to list all files in a directory.
+2. **Listing Git-tracked files**  
+   Script to list files tracked by Git in the current repository.
+3. **Listing Git-tracked PDF files**  
+   Script to list PDF files tracked by Git.
+
+### **PDF Operations**
+4. **Basic PDF operations**  
+   Script for performing basic PDF operations like merging, splitting, or extracting content.
+5. **Chunk overlap demonstration**  
+   Script to demonstrate chunk overlap concepts for splitting text or PDF content.
+6. **Generating PDF embeddings**  
+   Script to generate embeddings from PDF files.
+7. **Creating page embeddings for PDFs**  
+   Script to create embeddings for individual pages of a PDF.
+8. **Creating chunk embeddings for PDFs**  
+   Script to generate embeddings for specific chunks of text in a PDF.
+
+### **Embedding File Formats**
+9. **Saving PDF embeddings as CSV**  
+   Script to save PDF embeddings into a CSV file.
+10. **Saving PDF embeddings as JSON**  
+   Script to save PDF embeddings into a JSON file.
+
+### **Loading Embeddings**
+11. **Loading embeddings from CSV**  
+   Script to load embeddings from a CSV file.
+12. **Loading embeddings from JSON**  
+   Script to load embeddings from a JSON file.
+
+### **ChromaDB Operations**
+13. **Performing CRUD operations in ChromaDB**  
+   Script to perform Create, Read, Update, and Delete operations in ChromaDB.
+14. **Generating and adding embeddings to ChromaDB**  
+   Script to generate embeddings and add them to ChromaDB.
+15. **Storing embeddings persistently in ChromaDB**  
+   Script to store embeddings persistently in ChromaDB.
+16. **Executing multiple queries on ChromaDB**  
+   Script to execute multiple queries on ChromaDB.
+17. **Optimizing embedding generation**  
+   Script to optimize embedding generation for better performance.
+
+### **Embedding to Vector Database**
+18. **Converting and storing text embeddings in vector database**  
+   Script to convert text embeddings and store them in a vector database.
+19. **Converting and storing PDF embeddings in vector database**  
+   Script to convert PDF embeddings and store them in a vector database.
+20. **Converting and storing CSV embeddings in vector database**  
+   Script to convert embeddings from a CSV file and store them in a vector database.
+21. **Converting and storing JSON embeddings in vector database**  
+   Script to convert embeddings from a JSON file and store them in a vector database.
+
+### **Searching in Vector Database**
+22. **Searching vector database by ID**  
+   Script to search the vector database by ID.
+23. **Searching vector database by query**  
+   Script to search the vector database using a query.
+24. **Performing general search in vector database**  
+   General script to perform searches in a vector database.
+25. **Searching vector database by ID (alternative)**  
+   Alternative script to search the vector database by ID.
+26. **Executing advanced search queries in vector database**  
+   Script to execute advanced search queries in the vector database.
+
+### TODO: YET TO ADD CONTENT
+### **New Tasks from 27 Onward**
+27. **Create from CRUD operations on VectorDB**  
+   Perform the "Create" operation in CRUD for the VectorDB.
+28. **Read from CRUD operations on VectorDB**  
+   Perform the "Read" operation in CRUD for the VectorDB.
+29. **Update from CRUD operations on VectorDB**  
+   Perform the "Update" operation in CRUD for the VectorDB.
+30. **Delete from CRUD operations on VectorDB**  
+   Perform the "Delete" operation in CRUD for the VectorDB.
+31. **Create Query and Search to extract 'n' results**  
+   Generate a query and search the database to retrieve 'n' results.
+32. **Create Context with search results and pass to LLM**  
+   Create context from the search results and pass it to the Large Language Model (LLM).
+33. **Create Query and Search to extract 'n' results from VectorDB and pass to LLM**  
+   Generate a query to search the VectorDB and pass 'n' results to the LLM.
+34. **Create embeddings from multiple PDF files**  
+   Generate embeddings from several PDF files.
+35. **Create embeddings for multiple PDF files and store them in different VectorDBs**  
+   Generate embeddings for multiple PDF files and store them in separate VectorDBs.
+36. **Create query and get the results from different VectorDBs**  
+   Generate a query to fetch results from multiple VectorDBs.
+37. **Dump VectorDB details**  
+   Export or dump the details of the VectorDB.
