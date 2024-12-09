@@ -64,9 +64,6 @@ def server_init_croma_db(coll_name):
 
 def producer_create_embeddings(collection):
     whereami()
-    fname = "../data/menu_items.csv"
-    fname = "../data/game-of-thrones-test.csv"
-    fname = "../data/game-of-thrones-test.csv"
     fname = "../data/indian_history.csv"
 
     producer_stream_csv_data(fname, collection)    

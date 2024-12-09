@@ -46,25 +46,32 @@ def store_embeddings_in_vectordb(collection, data):
     logging.info(f"Collection '{collection.name}' successfully updated.")
     return
 
-def pdf_store_embeddings_in_vectordb(collection, data):
+def pdf_store_embeddings_in_vectordb(collection, data, 
+                                     store_pdf_embed = False, 
+                                     store_page_embed = False, 
+                                     store_chunk_embed = True):
     logging.debug("Storing page embeddings into ChromaDB")
+    ids = []; documents = [];  metadata = []; embeddings = []
 
-    ids = [data['file-id']]
-    documents = [data['file-text']]
-    metadata = [{'key': data['file-id'], 'value': data['file-text']}]
-    embeddings = [data['file-embedding']]
+    if (store_pdf_embed):
+        ids = [data['file-id']]
+        documents = [data['file-text']]
+        metadata = [{'key': data['file-id'], 'value': data['file-text']}]
+        embeddings = [data['file-embedding']]
 
-    for e in data['pages']:
-        ids.append(f"{e['page-id']}")
-        documents.append(f"{e['page-text']}")
-        metadata.append({'key': f"{e['page-id']}, 'value': {e['page-text']}"})
-        embeddings.append(e['page-embedding'])
+    if (store_page_embed):
+        for e in data['pages']:
+            ids.append(f"{e['page-id']}")
+            documents.append(f"{e['page-text']}")
+            metadata.append({'key': f"{e['page-id']}, 'value': {e['page-text']}"})
+            embeddings.append(e['page-embedding'])
 
-    for e in data['chunks']:
-        ids.append(f"{e['chunk-id']}")
-        documents.append(f"{e['chunk-text']}")
-        metadata.append({'key': f"{e['chunk-id']}", 'value': f"{e['chunk-text']}"})
-        embeddings.append(e['chunk-embedding'])
+    if (store_chunk_embed):
+        for e in data['chunks']:
+            ids.append(f"{e['chunk-id']}")
+            documents.append(f"{e['chunk-text']}")
+            metadata.append({'key': f"{e['chunk-id']}", 'value': f"{e['chunk-text']}"})
+            embeddings.append(e['chunk-embedding'])
 
     logging.info(f"len ids        :{len(ids)}")
     logging.info(f"len documents  :{len(documents)}")

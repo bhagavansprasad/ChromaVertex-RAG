@@ -7,13 +7,13 @@ from embeddings_utils import get_pdf_embeddings
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def main():
-    vdb_name = "vectDB/pdf-vectorDB"
-
-    coll_name = "cholas-embeddings"
     pdf_path = "user_data/cholas.pdf"
+    vdb_name = "vectDB/pdf-vectorDB"
+    coll_name = "cholas-embeddings"
 
-    # coll_name = "ramayan-embeddings"
-    # pdf_path = "user_data/ramayan.pdf"
+    pdf_path = "user_data/ramayan.pdf"
+    vdb_name = "vectDB/pdf-vectorDB"
+    coll_name = "ramayan-embeddings"
 
     collection = get_or_create_vector_db(vdb_name, coll_name)
 

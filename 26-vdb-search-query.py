@@ -30,7 +30,7 @@ def dump_search_results(query_results):
     return 0
 
 # points to note
-# Query is valid only when the search query-embedding and stored-chunk-embedding dimentions is same
+# Query is valid only when the search query-embedding and stored-chunk-embedding dimention is same
 
 def search_query_01():
     vdb_name = "vectDB/pdf-vectorDB"
@@ -58,7 +58,7 @@ def search_query_03():
 
     collection = get_or_create_vector_db(vdb_name, coll_name)
     
-    query_text = "When the chola dynasty started?"
+    query_text = "How is the empire is administered?"
     
     retval = vdb_search_by_query_ids(collection=collection, query_text=query_text, only_chunks=True)
     dump_search_results(retval)

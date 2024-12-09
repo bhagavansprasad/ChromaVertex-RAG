@@ -8,7 +8,7 @@ def vdb_store_text_embeddings(vdb_collection):
     ids = ["1", "2", "3"]
     metadatas = [{"type": "system"}, {"type": "script"}, {"type": "script"}]
     documents = ["C Programming Language", "Java Script", "Python Scripting and Programming Language"]
-    doc_embeddings = [get_text_embedding_from_text_embedding_model(doc, 5) for doc in documents]
+    doc_embeddings = [get_text_embedding_from_text_embedding_model(doc) for doc in documents]
     print(doc_embeddings)
     
     logging.debug(f"Upserting documents into the collection")
