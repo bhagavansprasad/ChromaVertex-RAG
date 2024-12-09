@@ -118,13 +118,15 @@ Indexes in ChromaDB are data structures that allow for fast retrieval of vectors
    Generate a query and search the database to retrieve 'n' results.
 32. **Create Context with search results and pass to LLM**  
    Create context from the search results and pass it to the Large Language Model (LLM).
-33. **Create Query and Search to extract 'n' results from VectorDB and pass to LLM**  
-   Generate a query to search the VectorDB and pass 'n' results to the LLM.
-34. **Create embeddings from multiple PDF files**  
+33. **Create embeddings from multiple PDF files**  
    Generate embeddings from several PDF files.
-35. **Create embeddings for multiple PDF files and store them in different VectorDBs**  
-   Generate embeddings for multiple PDF files and store them in separate VectorDBs.
-36. **Create query and get the results from different VectorDBs**  
-   Generate a query to fetch results from multiple VectorDBs.
-37. **Dump VectorDB details**  
+34. **Create embeddings for multiple PDF files and store them in different collections**  
+   Generate embeddings for multiple PDF files and store them in separate collections.
+35. **Create query and get the results from different collections**  
+   Generate a query to fetch results from multiple collections.
+36. **Create embeddings for multiple PDF files and store them in different vectorDBs**  
+   Generate embeddings for multiple PDF files and store them in separate vectorDBs.
+37. **Create query and get the results from different vectorDBs**  
+   Generate a query to fetch results from multiple vectorDBs.
+38. **Dump VectorDB details**  
    Export or dump the details of the VectorDB.
