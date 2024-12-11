@@ -103,9 +103,6 @@ Indexes in ChromaDB are data structures that allow for fast retrieval of vectors
    Alternative script to search the vector database by ID.
 26. **Executing advanced search queries in vector database**  
    Script to execute advanced search queries in the vector database.
-
-### TODO: YET TO ADD CONTENT
-### **New Tasks from 27 Onward**
 27. **Create from CRUD operations on VectorDB**  
    Perform the "Create" operation in CRUD for the VectorDB.
 28. **Read from CRUD operations on VectorDB**  
