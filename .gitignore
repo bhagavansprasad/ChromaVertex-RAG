@@ -1,6 +1,4 @@
-__pycache__/chromadb_utils.cpython-310.pyc
-__pycache__/dump_utils.cpython-310.pyc
-__pycache__/embeddings_utils.cpython-310.pyc
+__pycache__/*
 dist/VectorDB_Operations-0.1-py3.10.egg
 vectDB/cholas-vdb/chroma.sqlite3
 vectDB/cholas-vdb/2a684ebc-7dae-4db7-8a5c-7af7f1fbe697/data_level0.bin
