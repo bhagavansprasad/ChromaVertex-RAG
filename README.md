@@ -126,7 +126,3 @@ Indexes in ChromaDB are data structures that allow for fast retrieval of vectors
    Generate a query to fetch results from multiple collections.
 36. **Create embeddings for multiple PDF files and store them in different vectorDBs**  
    Generate embeddings for multiple PDF files and store them in separate vectorDBs.
-37. **Create query and get the results from different vectorDBs**  
-   Generate a query to fetch results from multiple vectorDBs.
-38. **Dump VectorDB details**  
-   Export or dump the details of the VectorDB.
