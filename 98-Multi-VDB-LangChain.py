@@ -1,19 +1,18 @@
-from langchain_community.vectorstores import Chroma
-from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
-# from vertexai.generative_models import GenerativeModel
+# from langchain_community.vectorstores import Chroma
+# from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
+# # from vertexai.generative_models import GenerativeModel
 
-# Define and rebuild VertexAIEmbeddings
-VertexAIEmbeddings._LanguageModel = None
-VertexAIEmbeddings.model_rebuild()
+# # Define and rebuild VertexAIEmbeddings
+# VertexAIEmbeddings._LanguageModel = None
+# VertexAIEmbeddings.model_rebuild()
 
-# Initialize LLM
-VertexAI._LanguageModel = None
-VertexAI.model_rebuild()
-llm = VertexAI(model="gemini-1.5-flash", temperature=1.0)
+# # Initialize LLM
+# VertexAI._LanguageModel = None
+# VertexAI.model_rebuild()
+# llm = VertexAI(model="gemini-1.5-flash", temperature=1.0)
 
-# Initialize embeddings
-# embeddings = VertexAIEmbeddings(project_id="bhagavangenai-444212", location="us-central1")
-embeddings = VertexAIEmbeddings(project_id="bhagavangenai-444212")
+# # Initialize embeddings
+# embeddings = VertexAIEmbeddings(project_id="xxxxxx")
 
 # # VectorDB connections
 # vector_dbs = {
@@ -53,5 +52,7 @@ embeddings = VertexAIEmbeddings(project_id="bhagavangenai-444212")
 #     for prompt in prompts:
 #         generate_response(prompt["vdb_name"], prompt["query_text"])
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    print("No implimentation YET, exiting...")
+    exit(1)
+    main()
