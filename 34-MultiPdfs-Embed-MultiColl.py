@@ -14,17 +14,15 @@ def _pdf_create_embeddings(pdf_path, vdb_name, coll_name):
     logging.info(f"Processed {pdf_path} and stored embeddings in collection '{coll_name}'")
 
 def main():
-    # Define a list of PDFs to process
     pdf_files = [
         {"path": "user_data/cholas.pdf",   "vdb_name": "vectDB/pdf-vectorDB", "collection": "cholas-embeddings"},
         {"path": "user_data/ramayan.pdf",  "vdb_name": "vectDB/pdf-vectorDB",  "collection": "ramayan-embeddings"},
         {"path": "user_data/mahabharata.pdf", "vdb_name": "vectDB/pdf-vectorDB", "collection": "mahabharata-embeddings"},
     ]
     
-    vdb_name = "vectDB/pdf-vectorDB"  # VectorDB location
-    
     for pdf in pdf_files:
         pdf_path = pdf["path"]
+        vdb_name = pdf["vdb_name"]
         coll_name = pdf["collection"]
         _pdf_create_embeddings(pdf_path, vdb_name, coll_name)
 

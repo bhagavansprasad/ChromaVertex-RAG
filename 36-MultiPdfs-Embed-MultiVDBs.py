@@ -1,32 +1,91 @@
-import logging
 from chromadb_utils import get_or_create_vector_db
-from chromadb_utils import pdf_store_embeddings_in_vectordb
-from embeddings_utils import get_pdf_embeddings
+from chromadb_utils import vdb_search_by_query_ids
+from vertexai.generative_models import GenerativeModel
+from vertexai.generative_models import GenerationConfig
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+def dump_search_results(query_results):
+    ids = query_results['ids'][0]
+    docs = query_results['documents'][0]
+    distances = query_results['distances'][0]
+    
+    for i, (id, doc, distance) in enumerate(zip(ids, docs, distances), 1):
+        print(f"{i}. ID: {id}")
+        print(f"doc :{doc}")
+        print(f"distance :{distance}")
+        print()
+    return 0
 
-def _pdf_create_embeddings(pdf_path, vdb_name, coll_name):
+def get_documents_by_query(vdb_name, coll_name, query_text):
+
     collection = get_or_create_vector_db(vdb_name, coll_name)
 
-    page_embeddings = get_pdf_embeddings(pdf_path)
+    results = vdb_search_by_query_ids(collection=collection, query_text=query_text, only_chunks=True)
+    dump_search_results(results)
 
-    pdf_store_embeddings_in_vectordb(collection, page_embeddings)
-    logging.info(f"Processed {pdf_path} and stored embeddings in collection '{coll_name}'")
+    documents = [doc for doc in results["documents"][0]]
+    
+    return documents
 
+def prompt_llm(prompt, query):
+    gen_config = GenerationConfig(temperature=1.0) # influences the creativity and randomness of the generated text.
+    gen_config = GenerationConfig(temperature=1.0, response_mime_type='application/json')
+    model = GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(prompt, generation_config=gen_config)
+    
+    print("-" * 75)
+    print(f"Query :{query}")
+    # print(f"Prompt :{prompt}")
+    print(f"Response :\n{response.text}")
+    print("-" * 75)
+
+def build_context_search_llm(query, vdb_name, collection):
+    documents = get_documents_by_query(vdb_name, collection, query)
+
+    context = "\n\n".join(documents)
+    MAX_TOKENS = 4096  # Example token limit, adjust based on your model
+    context = context[:MAX_TOKENS]
+
+    prompt = f"""
+    "{query}. Focus on the following context: [{context}]."
+   
+    ### Rules:
+    1. Do not add any information not present in the context.
+    2. If the answer is not found in the context, reply with "The information is not available in the provided context."
+
+    Answer:
+    """
+
+    return prompt
+    
 def main():
-    # Define a list of PDFs to process
-    pdf_files = [
-        {"path": "user_data/cholas.pdf",   "vdb_name": "vectDB/cholas-vdb", "collection": "cholas-embeddings"},
-        {"path": "user_data/ramayan.pdf",  "vdb_name": "vectDB/ramayan-vdb",  "collection": "ramayan-embeddings"},
-        {"path": "user_data/mahabharata.pdf", "vdb_name": "vectDB/mahabharata-vdb", "collection": "mahabharata-embeddings"},
+    prompts = [
+        {
+            "query_text": "They divided their empire into, what?",
+            "vdb_name": "vectDB/cholas-vdb",
+            "collection": "cholas-embeddings"
+        },
+        {
+            "query_text": "Who is Rama?",
+            "vdb_name": "vectDB/ramayan-vdb",
+            "collection": "ramayan-embeddings"
+        },
+        {
+            "query_text": "During which time period did the Mahabharata take place?",
+            "vdb_name": "vectDB/mahabharata-vdb",
+            "collection": "mahabharata-embeddings"
+        },
     ]
-    
-    vdb_name = "vectDB/pdf-vectorDB"  # VectorDB location
-    
-    for pdf in pdf_files:
-        pdf_path = pdf["path"]
-        coll_name = pdf["collection"]
-        _pdf_create_embeddings(pdf_path, vdb_name, coll_name)
+
+    for q in prompts:
+        query = q['query_text']
+        vdb_name = q['vdb_name']
+        collection = q['collection']
+        context = build_context_search_llm(query, vdb_name, collection)
+        
+        prompt_llm(context, query)
+   
+    return True
 
 if __name__ == "__main__":
     main()
+    

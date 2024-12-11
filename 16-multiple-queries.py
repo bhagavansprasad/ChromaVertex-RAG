@@ -99,8 +99,8 @@ def dump_results(jdata):
         print(f"\t{id}: {metadata[i]['type']} -->{documents[i]}")
 
 queries = [
-    {'query' : ['Kidnap'], 'qcount' : 5},
-    {'query' : ['Swayamvara'], 'qcount' : 2},
+    {'query' : ['Kidnap'], 'similarity_search_count' : 5},
+    {'query' : ['Swayamvara'], 'similarity_search_count' : 2},
 ]    
 
 def main():
@@ -116,7 +116,7 @@ def main():
     # dump_collection_details(collection)
 
     for q in queries:
-        reply = client_query_data(collection, q['query'], result_count=q['qcount'])
+        reply = client_query_data(collection, q['query'], result_count=q['similarity_search_count'])
         dump_results(reply)
         
 if (__name__ == "__main__"):
